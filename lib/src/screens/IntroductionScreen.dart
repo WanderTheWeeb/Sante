@@ -9,10 +9,10 @@ class IntroductionScreen extends StatefulWidget {
   const IntroductionScreen({super.key});
 
   @override
-  _IntroductionScreenState createState() => _IntroductionScreenState();
+  IntroductionScreenState createState() => IntroductionScreenState();
 }
 
-class _IntroductionScreenState extends State<IntroductionScreen> {
+class IntroductionScreenState extends State<IntroductionScreen> {
   bool showIntroduction = true;
 
   @override
@@ -41,9 +41,9 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
   Widget build(BuildContext context) {
     if (showIntroduction) {
       return Scaffold (
-        body: Stack(
-          children: [
-            PageView(
+        body: Container(
+          padding: const EdgeInsets.only(bottom: 80),
+            child: PageView(
               controller: _controller,
               children: const [
                 TerminosCondiciones(),
@@ -51,14 +51,26 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                 Bienvenida(),
               ],
             ),
-            Container(
-              alignment: const Alignment(0, 0.9),
-              child: SmoothPageIndicator(controller: _controller, count: 3),)
+        ),
+        bottomSheet: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 1,vertical: 80),
+        child: Row(
+          children: [
+            ElevatedButton(onPressed: () {
+
+            }, child: const Text("Salta")),
+            SmoothPageIndicator(controller: _controller, count: 3),
+            ElevatedButton(onPressed: () {
+
+            }, child: const Text("Siguiente"))
           ],
         ),
+        )
       );
     } else {
-      return Container(); // O redirección
+      return Container(
+        color: Colors.cyan,
+      );
     }
   }
 }
