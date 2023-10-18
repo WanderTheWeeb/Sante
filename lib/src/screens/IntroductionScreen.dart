@@ -36,13 +36,12 @@ class IntroductionScreenState extends State<IntroductionScreen> {
 
   final PageController _controller = PageController();
 
-
   @override
   Widget build(BuildContext context) {
     if (showIntroduction) {
-      return Scaffold (
-        body: Container(
-          padding: const EdgeInsets.only(bottom: 80),
+      return Scaffold(
+          body: Container(
+            padding: const EdgeInsets.only(bottom: 80),
             child: PageView(
               controller: _controller,
               children: const [
@@ -51,22 +50,19 @@ class IntroductionScreenState extends State<IntroductionScreen> {
                 Bienvenida(),
               ],
             ),
-        ),
-        bottomSheet: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 1,vertical: 80),
-        child: Row(
-          children: [
-            ElevatedButton(onPressed: () {
-
-            }, child: const Text("Salta")),
-            SmoothPageIndicator(controller: _controller, count: 3),
-            ElevatedButton(onPressed: () {
-
-            }, child: const Text("Siguiente"))
-          ],
-        ),
-        )
-      );
+          ),
+          bottomSheet: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 30,
+                vertical: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextButton(onPressed: () {}, child: const Text("Saltar")),
+                SmoothPageIndicator(controller: _controller, count: 3),
+                TextButton(onPressed: () {}, child: const Text("Siguiente"))
+              ],
+            ),
+          ));
     } else {
       return Container(
         color: Colors.cyan,
