@@ -41,7 +41,7 @@ class IntroductionScreenState extends State<IntroductionScreen> {
     if (showIntroduction) {
       return Scaffold(
           body: Container(
-            padding: const EdgeInsets.only(bottom: 80),
+            padding: const EdgeInsets.only(bottom: 50),
             child: PageView(
               controller: _controller,
               children: const [
@@ -53,7 +53,11 @@ class IntroductionScreenState extends State<IntroductionScreen> {
           ),
           bottomSheet: Container(
             padding: const EdgeInsets.symmetric(horizontal: 30,
-                vertical: 30),
+                vertical: 10),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.lightBlueAccent,
+                  strokeAlign: 5)
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
