@@ -62,7 +62,9 @@ class IntroductionScreenState extends State<IntroductionScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextButton(onPressed: () {}, child: const Text("Saltar")),
-                SmoothPageIndicator(controller: _controller, count: 3),
+                SmoothPageIndicator(controller: _controller, count: 3,
+                effect: const ColorTransitionEffect(
+                activeDotColor: Colors.lightBlueAccent)),
                 TextButton(onPressed: () {}, child: const Text("Siguiente"))
               ],
             ),
