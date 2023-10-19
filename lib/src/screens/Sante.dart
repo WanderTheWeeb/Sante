@@ -5,6 +5,13 @@ class Sante extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Organizaciones"),
+        elevation: 8,
+        backgroundColor: const Color.fromRGBO(169, 81, 222, 1.0),
+      ),
+      body: const Center(child: Text("Organizaciones")),
+    );
   }
 }

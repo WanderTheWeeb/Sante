@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sante2/src/screens/IntroductionScreens/Aclaraciones.dart';
 import 'package:sante2/src/screens/IntroductionScreens/Bienvenida.dart';
 import 'package:sante2/src/screens/IntroductionScreens/TerminosCondiciones.dart';
+import 'package:sante2/src/screens/Sante.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -40,39 +41,52 @@ class IntroductionScreenState extends State<IntroductionScreen> {
   Widget build(BuildContext context) {
     if (showIntroduction) {
       return Scaffold(
-          body: Container(
-            padding: const EdgeInsets.only(bottom: 50),
-            child: PageView(
-              controller: _controller,
-              children: const [
-                TerminosCondiciones(),
-                Aclaraciones(),
-                Bienvenida(),
-              ],
-            ),
+        body: Container(
+          padding: const EdgeInsets.only(bottom: 50),
+          child: PageView(
+            controller: _controller,
+            children: const [
+              TerminosCondiciones(),
+              Aclaraciones(),
+              Bienvenida(),
+            ],
           ),
-          bottomSheet: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 30,
-                vertical: 10),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.lightBlueAccent,
-                  strokeAlign: 5)
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                TextButton(onPressed: () {}, child: const Text("Saltar")),
-                SmoothPageIndicator(controller: _controller, count: 3,
+        ),
+        bottomSheet: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/home');
+                },
+                child: const Text("Omitir Introducción"),
+              ),
+              SmoothPageIndicator(
+                controller: _controller,
+                count: 3,
                 effect: const ColorTransitionEffect(
-                activeDotColor: Colors.lightBlueAccent)),
-                TextButton(onPressed: () {}, child: const Text("Siguiente"))
-              ],
-            ),
-          ));
-    } else {
-      return Container(
-        color: Colors.cyan,
+                  activeDotColor: Colors.lightBlueAccent,
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                },
+                child: const Text("Siguiente Paso"),
+              ),
+            ],
+          ),
+        ),
       );
+    } else {
+      return const Sante();
     }
   }
 }
+
+
+
+
+
