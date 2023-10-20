@@ -1,4 +1,4 @@
-# sante2
+# sante
 
 Santé es un proyecto que se enfoca en brindar atención psicológica de calidad, eliminando barreras de idioma y el estigma asociado a la salud mental. Ofrecen una aplicación de chat inteligente anónimo y gratuito, conectando a los usuarios con especialistas en salud mental. Su objetivo es liderar el mercado, mejorar la accesibilidad a la atención psicológica y romper las barreras del idioma. La empresa prioriza la empatía, la privacidad y la seguridad del usuario, con la visión de convertirse en una solución global para la salud mental.
 
