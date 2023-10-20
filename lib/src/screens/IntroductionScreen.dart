@@ -6,6 +6,7 @@ import 'package:sante2/src/screens/Sante.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+
 class IntroductionScreen extends StatefulWidget {
   const IntroductionScreen({super.key});
 
@@ -35,6 +36,30 @@ class IntroductionScreenState extends State<IntroductionScreen> {
     }
   }
 
+  void nextPage() {
+    final currentPage = _controller.page;
+    if (currentPage != null && currentPage < 2) {
+      _controller.animateToPage(
+        currentPage.toInt() + 1,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.ease,
+      );
+    } else {
+      Navigator.pushNamed(context, '/home');
+    }
+  }
+  void backPage() {
+    final currentPage = _controller.page;
+    if (currentPage != null && currentPage > 0) {
+      _controller.animateToPage(
+        currentPage.toInt() - 1,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.ease,
+      );
+    }
+  }
+
+
   final PageController _controller = PageController();
 
   @override
@@ -45,6 +70,7 @@ class IntroductionScreenState extends State<IntroductionScreen> {
           padding: const EdgeInsets.only(bottom: 50),
           child: PageView(
             controller: _controller,
+            physics: const NeverScrollableScrollPhysics(),
             children: const [
               TerminosCondiciones(),
               Aclaraciones(),
@@ -60,9 +86,9 @@ class IntroductionScreenState extends State<IntroductionScreen> {
             children: [
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/home');
+                  backPage();
                 },
-                child: const Text("Omitir Introducción"),
+                child: const Text("Retroceder"),
               ),
               SmoothPageIndicator(
                 controller: _controller,
@@ -73,6 +99,7 @@ class IntroductionScreenState extends State<IntroductionScreen> {
               ),
               TextButton(
                 onPressed: () {
+                  nextPage();
                 },
                 child: const Text("Siguiente Paso"),
               ),
@@ -85,8 +112,3 @@ class IntroductionScreenState extends State<IntroductionScreen> {
     }
   }
 }
-
-
-
-
-

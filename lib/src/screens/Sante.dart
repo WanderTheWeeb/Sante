@@ -7,6 +7,7 @@ class Sante extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text("Organizaciones"),
         elevation: 8,
         backgroundColor: const Color.fromRGBO(169, 81, 222, 1.0),
