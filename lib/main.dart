@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sante2/src/screens/ChatScreen.dart';
 import 'package:sante2/src/screens/Sante.dart';
 
 import 'src/screens/IntroductionScreen.dart';
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
       routes: {
         '/home' : (context) => const Sante(),
-        '/IntroductionScreen' : (context) => const IntroductionScreen()
+        '/IntroductionScreen' : (context) => const IntroductionScreen(),
+        '/ChatScreen' : (context) => const ChatScreen(),
       },
       home: const IntroductionScreen(),
 
