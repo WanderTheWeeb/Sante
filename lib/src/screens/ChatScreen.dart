@@ -27,7 +27,7 @@ class ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.only(right: 12),
         child: Column(
           children: [
             Expanded(
@@ -38,6 +38,15 @@ class ChatScreenState extends State<ChatScreen> {
                 },
               ),
             ),
+          ],
+        ),
+      ),
+      bottomSheet: Container(
+        padding: const EdgeInsets.all(10),
+        color: Colors.transparent,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
             Container(
               margin: const EdgeInsets.all(15),
               padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -56,11 +65,14 @@ class ChatScreenState extends State<ChatScreen> {
               child: Row(
                 children: [
                   Expanded(
-                    child: TextField(
-                      controller: messageController,
-                      decoration: const InputDecoration(
-                        hintText: 'Escribe un mensaje',
-                        border: InputBorder.none,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 12),
+                      child: TextField(
+                        controller: messageController,
+                        decoration: const InputDecoration(
+                          hintText: 'Escribe un mensaje',
+                          border: InputBorder.none,
+                        ),
                       ),
                     ),
                   ),
