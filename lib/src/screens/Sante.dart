@@ -47,6 +47,12 @@ class _SanteState extends State<Sante> {
               // Acción al presionar el botón de búsqueda
             },
           ),
+          IconButton(onPressed: () {
+
+          }, icon: const Icon(Icons.notifications)),
+          IconButton(onPressed: () {
+
+          }, icon: const Icon(Icons.more_horiz))
         ],
       ),
       body: const ChatScreen(),
