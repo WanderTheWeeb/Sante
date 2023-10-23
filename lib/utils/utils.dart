@@ -24,8 +24,12 @@ Widget TextSectionV1(String title, String text) => Column(
       ],
     );
 
-Widget TileDrawer(String title, IconData iconData) {
+Widget TileDrawer(BuildContext context, String folderName, String title, IconData iconData) {
+  final route = '/$folderName'; // Aquí se concatena el nombre de la carpeta
   return ListTile(
+    onTap: () {
+      Navigator.pushNamed(context, route);
+    },
     title: Text(
       title,
       style: const TextStyle(color: Colors.white),

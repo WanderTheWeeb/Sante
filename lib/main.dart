@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sante2/src/screens/ChatScreen.dart';
 import 'package:sante2/src/screens/Sante.dart';
+import 'package:sante2/src/screens/Usuarios/UserProfile.dart';
 
 import 'src/screens/IntroductionScreen.dart';
 
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
         '/home' : (context) => const Sante(),
         '/IntroductionScreen' : (context) => const IntroductionScreen(),
         '/ChatScreen' : (context) => const ChatScreen(),
+        '/perfil' : (context) => const UserProfile(),
       },
       home: const IntroductionScreen(),
 

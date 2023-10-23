@@ -47,18 +47,15 @@ class _SanteState extends State<Sante> {
               // Acción al presionar el botón de búsqueda
             },
           ),
-          IconButton(onPressed: () {
-
-          }, icon: const Icon(Icons.notifications)),
-          IconButton(onPressed: () {
-
-          }, icon: const Icon(Icons.more_horiz))
+          IconButton(onPressed: () {}, icon: const Icon(Icons.notifications)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
         ],
       ),
       body: const ChatScreen(),
       drawer: Drawer(
         width: 250,
-        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.horizontal(right: Radius.circular(20)),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.horizontal(right: Radius.circular(20)),
         ),
         child: Container(
           decoration: const BoxDecoration(
@@ -107,7 +104,8 @@ class _SanteState extends State<Sante> {
                           radius: 32,
                           child: CircleAvatar(
                             radius: 30,
-                            backgroundImage: AssetImage('assets/images/profileDefault.jpg'),
+                            backgroundImage:
+                                AssetImage('assets/images/profileDefault.jpg'),
                           ),
                         ),
                         SizedBox(width: 20),
@@ -133,13 +131,23 @@ class _SanteState extends State<Sante> {
                       ],
                     ),
                   ),
-                  const Divider(color: Colors.white, thickness: 3, indent: 15, endIndent: 15),
-                  TileDrawer('Mi perfil', Icons.account_circle),
-                  TileDrawer('Organizaciones', Icons.group),
-                  TileDrawer('Configuración', Icons.settings),
-                  TileDrawer('Sobre Nosotros', Icons.emoji_people),
-                  TileDrawer('Contáctanos', Icons.corporate_fare),
-                  TileDrawer('Soy Psicólogo', Icons.psychology),
+                  const Divider(
+                      color: Colors.white,
+                      thickness: 3,
+                      indent: 15,
+                      endIndent: 15),
+                  TileDrawer(
+                      context, 'perfil', 'Mi perfil', Icons.account_circle),
+                  TileDrawer(
+                      context, 'Organizaciones', 'Organizaciones', Icons.group),
+                  TileDrawer(context, 'Configuración', 'Configuración',
+                      Icons.settings),
+                  TileDrawer(
+                      context, 'AboutUs', 'Sobre Nosotros', Icons.emoji_people),
+                  TileDrawer(context, 'Contactanos', 'Contáctanos',
+                      Icons.corporate_fare),
+                  TileDrawer(
+                      context, 'Psycho', 'Soy Psicólogo', Icons.psychology),
                 ],
               ),
             ],
