@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sante2/src/screens/ChatScreen.dart';
 import 'package:sante2/src/screens/Sante.dart';
 import 'package:sante2/src/screens/Usuarios/UserProfile.dart';
+import 'package:sante2/src/screens/psicologos/LoginPage.dart';
 import 'package:sante2/src/screens/psicologos/RegisterPsico.dart';
 import 'package:sante2/src/screens/psicologos/RequestMenu.dart';
 
@@ -27,7 +28,9 @@ class MyApp extends StatelessWidget {
         '/IntroductionScreen' : (context) => const IntroductionScreen(),
         '/ChatScreen' : (context) => const ChatScreen(),
         '/perfil' : (context) => const UserProfile(),
-        '/psycho': (context) => const RegisterScreen(),
+        '/psychoLogin': (context) =>  LoginPage(),
+        '/psychoRegister': (context) => const RegisterScreen(),
+        '/psycho':(context) => const RequestMenu()
       },
       home: const IntroductionScreen(),
 

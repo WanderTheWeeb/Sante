@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sante2/utils/utils.dart';
-
+import 'package:intl/intl.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -10,8 +9,18 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  String _selectedSpeciality = 'Psicología';
 
+  // Define una lista de especialidades de psicólogos para el menú desplegable.
+  final List<String> _specialities = [
+    'Psicología',
+    'Psicología Clínica',
+    'Psicología Educativa',
+    'Otra'
+  ];
 
+  DateTime? _birthdate;
+  final dateFormat = DateFormat('dd/MM/yyyy');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,76 +45,96 @@ class _RegisterScreenState extends State<RegisterScreen> {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            buildTextField('Nombre Completo', 'Nombre Completo'),
+            TextField(
+              onChanged: (value) {},
+              decoration: const InputDecoration(labelText: 'Nombre Completo'),
+            ),
             const SizedBox(height: 10),
             Row(
               children: [
                 Expanded(
-                  child: buildTextField('Edad', 'Edad'),
+                  child: TextField(
+                    onTap: () async {
+                      final pickedDate = await showDatePicker(
+                        context: context,
+                        initialDate: _birthdate ?? DateTime.now(),
+                        firstDate: DateTime(1900),
+                        lastDate: DateTime.now(),
+
+                      );
+
+                      if (pickedDate != null && pickedDate != _birthdate) {
+                        setState(() {
+                          _birthdate = pickedDate;
+                        });
+                      }
+                    },
+                    readOnly: true,
+                    controller: TextEditingController(text: _birthdate != null ? dateFormat.format(_birthdate!) : ''),
+                    decoration: const InputDecoration(labelText: 'Fecha de Nacimiento'),
+                  ),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
-                  child: buildTextField('Género', 'Género'),
+                  child: TextField(
+                    onChanged: (value) {},
+                    decoration: const InputDecoration(labelText: 'Género'),
+                  ),
                 ),
               ],
             ),
             const SizedBox(height: 10),
-            buildTextField('Correo', 'Correo'),
+            TextField(
+              onChanged: (value) {},
+              decoration: const InputDecoration(labelText: 'Correo'),
+            ),
             const SizedBox(height: 10),
-            buildTextField('Teléfono', 'Teléfono'),
+            TextField(
+              onChanged: (value) {},
+              decoration: const InputDecoration(labelText: 'Teléfono'),
+            ),
             const SizedBox(height: 20),
-            buildTextField('Cédula Profesional', 'Cédula Profesional'),
+            TextField(
+              onChanged: (value) {},
+              decoration:
+              const InputDecoration(labelText: 'Cédula Profesional'),
+            ),
             const SizedBox(height: 20),
-            buildDropdown(),
+            DropdownButtonFormField(
+              value: _selectedSpeciality,
+              items: _specialities.map((speciality) {
+                return DropdownMenuItem(
+                  value: speciality,
+                  child: Text(speciality),
+                );
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  _selectedSpeciality = value.toString();
+                });
+              },
+              decoration: const InputDecoration(labelText: 'Especialidad'),
+            ),
             const SizedBox(height: 20),
             ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromRGBO(42, 157, 143, 1.0),
+              style: const ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(
+                  Color.fromRGBO(42, 157, 143, 1.0),
+                ),
               ),
               onPressed: () {},
               child: const Text('Subir Documento de Identidad'),
             ),
             ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromRGBO(42, 157, 143, 1.0),
+              style: const ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(
+                  Color.fromRGBO(42, 157, 143, 1.0),
+                ),
               ),
               onPressed: () {},
               child: const Text('Registrarse'),
             ),
           ],
-        ),
-      ),
-    );
-  }
-
-
-  Widget buildDropdown() {
-    final List<String> specialities = [
-      'Psicología',
-      'Psicología Clínica',
-      'Psicología Educativa',
-      'Otra',
-    ];
-
-    String _selectedSpeciality = specialities[0];
-
-    return DropdownButtonFormField(
-      value: _selectedSpeciality,
-      items: specialities.map((speciality) {
-        return DropdownMenuItem(
-          value: speciality,
-          child: Text(speciality),
-        );
-      }).toList(),
-      onChanged: (value) {
-        setState(() {
-          _selectedSpeciality = value.toString();
-        });
-      },
-      decoration: const InputDecoration(
-        labelText: 'Especialidad',
-        labelStyle: TextStyle(
-          color: Color.fromRGBO(42, 157, 143, 1.0), // Establece el color del label al tomar el foco
         ),
       ),
     );

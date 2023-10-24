@@ -139,7 +139,7 @@ class _SanteState extends State<Sante> {
                   TileDrawer(
                       context, 'perfil', 'Mi perfil', Icons.account_circle),
                   TileDrawer(
-                      context, 'psycho', 'Soy Psicólogo', Icons.psychology),
+                      context, 'psychoLogin', 'Soy Psicólogo', Icons.psychology),
                   TileDrawer(
                       context, 'Organizaciones', 'Organizaciones', Icons.group),
                   TileDrawer(context, 'Configuración', 'Configuración',

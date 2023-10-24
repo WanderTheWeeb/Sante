@@ -38,6 +38,7 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   introduction_screen: ^3.1.12
   shared_preferences: ^2.2.2
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
