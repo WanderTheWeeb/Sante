@@ -17,7 +17,6 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
       theme: ThemeData(
         inputDecorationTheme: const InputDecorationTheme(
-
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(color:Color.fromRGBO(42, 157, 143, 1.0)), // Cambia el color del foco a verde
           ),

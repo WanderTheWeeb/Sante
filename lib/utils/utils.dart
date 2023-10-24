@@ -105,3 +105,16 @@ Widget UserRequest(
     ),
   );
 }
+
+Widget buildTextField(String label, String hint) {
+  return TextField(
+    onChanged: (value) {},
+    decoration: InputDecoration(
+      labelText: label,
+      labelStyle: const TextStyle(
+      ),
+      hintText: hint,
+    ),
+  );
+}
+
