@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
 class UserProfile extends StatelessWidget {
-  const UserProfile({Key? key}) : super(key: key);
+  const UserProfile({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Mi perfil'),
         flexibleSpace: Container(
@@ -25,7 +24,7 @@ class UserProfile extends StatelessWidget {
           IconButton(onPressed: () {}, icon: const Icon(Icons.edit)),
         ],
       ),
-      body: Column(
+      body: ListView(
         children: [
           Container(
             height: 200,
@@ -74,71 +73,26 @@ class UserProfile extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 15),
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 20),
-            decoration: BoxDecoration(
-              color: Colors.black87,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: const ListTile(
-              title: Text(
-                'Correo Electrónico',
-                style: TextStyle(color: Colors.white),
-              ),
-              subtitle: Text(
-                'usuario@example.com',
-                style: TextStyle(color: Colors.white),
-              ),
-              leading: Icon(
-                Icons.email,
-                color: Colors.white,
-              ),
-            ),
+          const SizedBox(height: 30),
+          const ListTile(
+            leading: Icon(Icons.person),
+            title: Text("Nombre: José Edoardo Martinez Chavarria"),
           ),
-          const SizedBox(height: 15),
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 20),
-            decoration: BoxDecoration(
-              color: Colors.black87,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: const ListTile(
-              title: Text(
-                'Teléfono',
-                style: TextStyle(color: Colors.white),
-              ),
-              subtitle: Text(
-                '+52 921 054 2324',
-                style: TextStyle(color: Colors.white),
-              ),
-              leading: Icon(
-                Icons.phone,
-                color: Colors.white,
-              ),
-            ),
+          const ListTile(
+            leading: Icon(Icons.email),
+            title:
+            Text("Correo electrónico: lalitogamer@gmail.com"),
           ),
-          const SizedBox(height: 15),
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 20),
-            decoration: BoxDecoration(
-              color: Colors.black87,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: const ListTile(
-              title: Text(
-                'Dirección',
-                style: TextStyle(color: Colors.white),
-              ),
-              subtitle: Text(
-                '123 Avenida Universidad',
-                style: TextStyle(color: Colors.white),
-              ),
-              leading: Icon(
-                Icons.location_on,
-                color: Colors.white,
-              ),
-            ),
+          const Divider(
+            height: 30,
+          ),
+          const ListTile(
+            leading: Icon(Icons.phone),
+            title: Text("Teléfono: +52 9211212110"),
+          ),
+          const ListTile(
+            leading: Icon(Icons.location_on),
+            title: Text("Ubicación: Minatítlan, México"),
           ),
         ],
       ),

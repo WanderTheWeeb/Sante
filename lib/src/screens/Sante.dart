@@ -139,6 +139,8 @@ class _SanteState extends State<Sante> {
                   TileDrawer(
                       context, 'perfil', 'Mi perfil', Icons.account_circle),
                   TileDrawer(
+                      context, 'psycho', 'Soy Psicólogo', Icons.psychology),
+                  TileDrawer(
                       context, 'Organizaciones', 'Organizaciones', Icons.group),
                   TileDrawer(context, 'Configuración', 'Configuración',
                       Icons.settings),
@@ -146,8 +148,7 @@ class _SanteState extends State<Sante> {
                       context, 'AboutUs', 'Sobre Nosotros', Icons.emoji_people),
                   TileDrawer(context, 'Contactanos', 'Contáctanos',
                       Icons.corporate_fare),
-                  TileDrawer(
-                      context, 'Psycho', 'Soy Psicólogo', Icons.psychology),
+
                 ],
               ),
             ],
