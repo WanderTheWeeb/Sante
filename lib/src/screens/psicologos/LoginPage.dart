@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sante2/src/screens/Sante.dart';
 import 'package:sante2/src/screens/psicologos/RequestMenu.dart';
 
 class LoginPage extends StatefulWidget {
@@ -75,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                           children: [
                             Icon(
                               Icons.warning,
-                              color: Colors.red,
+                              color: Colors.yellowAccent,
                             ),
                             Text('Credenciales incorrectas'),
                           ],
@@ -87,16 +86,24 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 16),
                 ElevatedButton(
-                  style: const ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(
-                      Color.fromRGBO(24, 90, 82, 1.0),
-                    ),
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: const Color.fromRGBO(0, 0, 0, 1.0), backgroundColor: const Color.fromRGBO(255, 255, 255, 1.0), // Color del texto
                   ),
                   onPressed: () {
                     // Aquí puedes agregar la lógica para iniciar sesión con Google
                   },
-                  child: const Text('Iniciar Sesión con Google'),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center, // Centra los elementos horizontalmente
+                    mainAxisSize: MainAxisSize.min, // Permite que el botón se adapte al contenido
+                    children: [
+                      Image.asset('assets/images/google.png',
+                      scale: 100), // Asegúrate de tener la imagen en la ubicación correcta
+                      const SizedBox(width: 8), // Agrega un espacio entre la imagen y el texto
+                      const Text('Iniciar Sesión con Google'),
+                    ],
+                  ),
                 ),
+
                 const SizedBox(height: 16),
                 TextButton(
                   onPressed: () {

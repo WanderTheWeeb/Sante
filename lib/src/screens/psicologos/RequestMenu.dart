@@ -30,12 +30,11 @@ class RequestMenu extends StatelessWidget {
           UserRequest(
             'Anonimo',
             'Tengo problemas con mi familia debido a que siempre me ignoran y siento que no prestan atención...',
-            'assets/images/profileDefault.jpg',
           ),
-          UserRequest('Vianca Jhoseline', 'Siento que no pertenezco a este mundo, tengo la percepcion de la realidad bien alterada...'
-              , 'assets/images/Vianca.jpg')
-
-
+          UserRequest(
+            'Anonimo',
+            'Siento que no pertenezco a este mundo, tengo la percepcion de la realidad bien alterada...',
+          )
         ],
       ),
     );

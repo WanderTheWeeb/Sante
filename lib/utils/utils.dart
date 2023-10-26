@@ -44,67 +44,50 @@ Widget TileDrawer(BuildContext context, String folderName, String title, IconDat
 Widget UserRequest(
     String username,
     String userDescription,
-    String imagePath,
     ) {
   return Container(
     padding: const EdgeInsets.all(10),
     margin: const EdgeInsets.all(5),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(15),
-      gradient: const LinearGradient(
-        colors: [Colors.blueGrey, Colors.black87],
+      gradient: LinearGradient(
+        colors: [Colors.teal, Colors.blue],
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
       ),
     ),
-    child: Row(
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.all(10),
-          child: CircleAvatar(
-            backgroundColor: Colors.black87,
-            radius: 30,
-            child: CircleAvatar(
-              radius: 28,
-              backgroundImage: AssetImage(imagePath),
-            ),
-          ),
+        Text(
+          username,
+          style: TextStyle(color: Colors.white, fontSize: 20),
         ),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                username,
-                style: const TextStyle(color: Colors.white, fontSize: 20),
-              ),
-              const Divider(
-                color: Colors.white,
-                endIndent: 20,
-              ),
-              Text(
-                userDescription,
-                style: const TextStyle(color: Colors.white, fontSize: 14),
-              ),
-              const SizedBox(height: 10),
-              Align(
-                alignment: Alignment.center,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.black,
-                    backgroundColor: Colors.amber,
-                  ),
-                  onPressed: () {},
-                  child: const Text('Atender'),
-                ),
-              ),
-            ],
+        const Divider(
+          color: Colors.white,
+          endIndent: 20,
+        ),
+        Text(
+          userDescription,
+          style: TextStyle(color: Colors.white, fontSize: 14),
+        ),
+        const SizedBox(height: 10),
+        Align(
+          alignment: Alignment.bottomRight,
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              foregroundColor: Colors.black,
+              backgroundColor: Colors.amber, // Cambia el color de fondo del botón
+            ),
+            onPressed: () {},
+            child: const Text('Atender'),
           ),
         ),
       ],
     ),
   );
 }
+
 
 Widget buildTextField(String label, String hint) {
   return TextField(
